@@ -1,34 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using Mirror;
 
-namespace Mirror
+public class playerMovement : NetworkBehaviour
 {
-    public class ControllerPlayer : NetworkBehaviour
+
+    public float moveSpeed;
+    public float jumpHeight;
+
+    // Use this for initialization
+    void Start()
     {
-        public CharacterController controller;
-        public float speed;
-        public Rigidbody player;
-        public float jumpHeight;
 
-        private void FixedUpdate()
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            if (isLocalPlayer)
-            {
-                float horizontal = Input.GetAxis("Horizontal");
-                Vector3 direction = new Vector3(horizontal, 0f, 0f);
-
-                if(direction.magnitude >= 0.1f)
-                {
-                    controller.Move(direction * speed * Time.deltaTime);
-                }
-                if (Input.GetKey("space"))
-                {
-                    player.AddForce(transform.up * jumpHeight);
-                }
-            }
-            
+            GetComponent<Rigidbody>().velocity = new Vector2(0, jumpHeight);
         }
-
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            GetComponent<Rigidbody>().velocity = new Vector2(-moveSpeed, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            GetComponent<Rigidbody>().velocity = new Vector2(moveSpeed, 0);
+        }
     }
 }
