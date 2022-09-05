@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637976327647096734
+      ticks: 637979736912431704
     m_Hash: 3529745186
   m_LockFileStatus:
     m_FilePath: C:/Users/RA00277909/Documents/GitHub/FightGame/FightGame/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637976327647096734
+      ticks: 637979736912441916
     m_Hash: 173850735
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
