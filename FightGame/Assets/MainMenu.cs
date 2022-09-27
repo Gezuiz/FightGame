@@ -8,10 +8,28 @@ public class MainMenu : MonoBehaviour
     
     public void PlayGame ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("GameMode Selection");
     }
 
-    
+    public void PlayDuel()
+    {
+        SceneManager.LoadScene("CharacterSelect");
+    }
+
+    public void PlayShowdown()
+    {
+        SceneManager.LoadScene("CharacterSelect1");
+    }
+    public void BackGameMode()
+    {
+        SceneManager.LoadScene("GameMode Selection");
+    }
+
+    public void PlayMatch()
+    {
+        SceneManager.LoadScene("Arena1");
+    }
+
     public void QuitGame()
     {
         Debug.Log("QUIT");
