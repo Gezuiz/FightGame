@@ -185,11 +185,12 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 7
   rigid: {fileID: 4720349857635846522}
-  inAir: 0
+  inAir: 1
   flip: 0
   doublejump: 1
   dashpower: 1
   dash_Ok: 0
+  FirstClick: 0
 --- !u!1 &7005064776121850849
 GameObject:
   m_ObjectHideFlags: 0

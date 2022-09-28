@@ -11,29 +11,42 @@ public class PlayerMov : NetworkBehaviour
     public Rigidbody rigid;
     public bool inAir = false;
     public bool flip;
-    public int doublejump = 2;
+    public bool doublejump = true;
     public int dashpower;
     public bool dash_Ok = true;
+    public bool FirstClick;
     #endregion
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+        if (Input.GetKey(KeyCode.Space))
         {
-            jump();
+            if(FirstClick == true)
+            {
+                jump();
+                FirstClick = false;
+                StartCoroutine(SpaceRecharge());
+            }
         }
         else if (Input.GetKey(KeyCode.A))
         {
             if(inAir == false)
             {
-                rigid.velocity = new Vector2(-moveSpeed, 0);
+                rigid.velocity = Vector3.left * moveSpeed;
                 flip = true;
                 Rotate();
-                
             }
             else
             {
-                rigid.velocity = new Vector2(-moveSpeed, -2);
+                if (flip == false)
+                {
+                    rigid.velocity += Vector3.left * moveSpeed * 10 * Time.deltaTime;
+                }
+                else
+                {
+                    rigid.velocity += Vector3.left * moveSpeed * 5 * Time.deltaTime;
+                }
                 flip = true;
                 Rotate();
             }
@@ -44,21 +57,33 @@ public class PlayerMov : NetworkBehaviour
 
             if (inAir == false)
             {
-                rigid.velocity = new Vector2(moveSpeed, 0);
+                rigid.velocity = Vector3.right * moveSpeed;
                 flip = false;
                 Rotate();
                 
             }
             else
             {
-                rigid.velocity = new Vector2(moveSpeed, -2);
+                if(flip == true)
+                {
+                    rigid.velocity += Vector3.right * moveSpeed * 10 * Time.deltaTime;
+                }
+                else
+                {
+                    rigid.velocity += Vector3.right * moveSpeed * 5 * Time.deltaTime;
+                }
                 flip = false;
                 Rotate();
             }
         }
         if (inAir == false)
         {
-            doublejump = 2;
+            doublejump = true;
+
+        }
+        if (inAir == true)
+        {
+            rigid.velocity += Vector3.up * Physics2D.gravity.y * (2.5f - 1) * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -123,10 +148,10 @@ public class PlayerMov : NetworkBehaviour
             rigid.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
 
         }
-        if (inAir == true && doublejump > -1)
+        if (inAir == true && doublejump == true)
         {
             rigid.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
-            doublejump = -1;
+            doublejump = false;
         }
     }
 
@@ -145,6 +170,17 @@ public class PlayerMov : NetworkBehaviour
 
         }
 
+    }
+
+    IEnumerator SpaceRecharge()
+    {
+        yield return new WaitForSeconds(0.2f);
+        FirstClick = true;
+    }
+
+    private void Start()
+    {
+        FirstClick = true;
     }
 
 }
