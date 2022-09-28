@@ -33,7 +33,7 @@ public class PlayerMov : NetworkBehaviour
         {
             if(inAir == false)
             {
-                rigid.velocity = Vector3.left * moveSpeed;
+                rigid.velocity = Vector3.forward * moveSpeed;
                 flip = true;
                 Rotate();
             }
@@ -41,11 +41,11 @@ public class PlayerMov : NetworkBehaviour
             {
                 if (flip == false)
                 {
-                    rigid.velocity += Vector3.left * moveSpeed * 10 * Time.deltaTime;
+                    rigid.velocity += Vector3.forward * moveSpeed * 10 * Time.deltaTime;
                 }
                 else
                 {
-                    rigid.velocity += Vector3.left * moveSpeed * 5 * Time.deltaTime;
+                    rigid.velocity += Vector3.forward * moveSpeed * 5 * Time.deltaTime;
                 }
                 flip = true;
                 Rotate();
@@ -57,7 +57,7 @@ public class PlayerMov : NetworkBehaviour
 
             if (inAir == false)
             {
-                rigid.velocity = Vector3.right * moveSpeed;
+                rigid.velocity = Vector3.back * moveSpeed;
                 flip = false;
                 Rotate();
                 
@@ -66,11 +66,11 @@ public class PlayerMov : NetworkBehaviour
             {
                 if(flip == true)
                 {
-                    rigid.velocity += Vector3.right * moveSpeed * 10 * Time.deltaTime;
+                    rigid.velocity += Vector3.back * moveSpeed * 10 * Time.deltaTime;
                 }
                 else
                 {
-                    rigid.velocity += Vector3.right * moveSpeed * 5 * Time.deltaTime;
+                    rigid.velocity += Vector3.back * moveSpeed * 5 * Time.deltaTime;
                 }
                 flip = false;
                 Rotate();
@@ -132,12 +132,12 @@ public class PlayerMov : NetworkBehaviour
     {
         if (flip)
         {
-            transform.eulerAngles = new Vector3(0, 180, 0); // Flipped
+            transform.eulerAngles = new Vector3(0, 0, 0); // Flipped
         }
 
         if (!flip)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
 
@@ -181,6 +181,7 @@ public class PlayerMov : NetworkBehaviour
     private void Start()
     {
         FirstClick = true;
+        
     }
 
 }
