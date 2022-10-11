@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,10 +118,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 678, y: 492}
+  m_MaxSize: {x: 14001, y: 14042}
   vertical: 1
-  controlID: 19176
+  controlID: 6595
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,10 +143,10 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 947
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 678, y: 492}
+  m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 19177
+  controlID: 6596
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 19178
+  controlID: 6597
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 19179
+  controlID: 6598
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -279,7 +279,7 @@ MonoBehaviour:
   - {fileID: 19}
   - {fileID: 20}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -425,9 +425,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 2a60feff
-      m_LastClickedID: -106454
-      m_ExpandedIDs: 467ffeff7af1ffff7cf1ffff04d8000048d80000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: fed5ffff1cd7ffffa0e0ffff3ce2ffff6ae5ffff14e7ffff9ce7fffff8eaffffc4eeffffe0f6ffff68f9ffffe04f0000105000006e5b00009e5b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -443,7 +443,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 9}
+        m_ClientGUIView: {fileID: 12}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -538,11 +538,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.07423463, y: 0.13568015, z: -0.01020514, w: -0.98795134}
     speed: 2
-    m_Value: {x: -0.07572927, y: 0.13417797, z: -0.010294721, w: -0.9880058}
+    m_Value: {x: -0.07423462, y: 0.13568014, z: -0.010205139, w: -0.9879513}
   m_Size:
     m_Target: 1429.0088
     speed: 2
-    m_Value: 1367.4725
+    m_Value: 1429.0088
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -691,22 +691,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 40
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Scenes
   m_LastFoldersGridSize: 40
-  m_LastProjectPath: C:\Users\RA00274482\Documents\GitHub\FightGame\FightGame
+  m_LastProjectPath: C:\Users\RA00277909\Documents\GitHub\FightGame\FightGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 22560000
-    m_LastClickedID: 22050
-    m_ExpandedIDs: 00000000f8550000fa5500003056000000ca9a3b
+    m_SelectedIDs: c44d0000
+    m_LastClickedID: 19908
+    m_ExpandedIDs: 00000000924d0000944d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -734,7 +734,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f8550000fa55000000ca9a3b
+    m_ExpandedIDs: 00000000924d0000944d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -762,7 +762,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000e25d00006842000084d900007040000008df00007ccf00000000000052650000
+    m_ExpandedInstanceIDs: c6230000e25d00006842000084d900007040000008df00007ccf00000000000052650000de4c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -811,9 +811,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 629
-    width: 1345
-    height: 370
+    y: 630
+    width: 1338
+    height: 369
   m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &20
 MonoBehaviour:

@@ -1,4 +1,7 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using Mirror;
 
 /*
 	Documentation: https://mirror-networking.gitbook.io/docs/components/network-manager
