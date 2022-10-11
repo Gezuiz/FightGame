@@ -544,7 +544,7 @@ MonoBehaviour:
   inAir: 0
   flip: 0
   doublejump: 1
-  dashpower: 0
+  dashpower: 1
   dash_Ok: 1
   FirstClick: 0
 --- !u!114 &5369907527737865980
