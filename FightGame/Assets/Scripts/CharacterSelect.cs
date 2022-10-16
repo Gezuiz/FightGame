@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterSelect : MonoBehaviour
 {
@@ -25,5 +26,9 @@ public class CharacterSelect : MonoBehaviour
         characters[selectedCharacter].SetActive(true);
     }
 
-   
+   public void StartGame()
+    {
+        PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
+        SceneManager.LoadScene("Arena1");
+    }
 }
