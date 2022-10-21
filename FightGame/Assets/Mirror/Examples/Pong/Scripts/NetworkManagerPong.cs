@@ -19,12 +19,15 @@ namespace Mirror.Examples.Pong
         public Transform leftRacketSpawn;
         public Transform rightRacketSpawn;
         GameObject ball;
+        public GameObject[] Characters;
 
         public override void OnServerAddPlayer(NetworkConnectionToClient conn)
         {
             // add player at correct spawn position
+            int selectedCharacter = 2; //PlayerPrefs.GetInt("selectedCharacter");
+            GameObject prefab = Characters[selectedCharacter];
             Transform start = numPlayers == 0 ? leftRacketSpawn : rightRacketSpawn;
-            GameObject player = Instantiate(playerPrefab, start.position, start.rotation);
+            GameObject player = Instantiate(prefab, start.position, start.rotation);
             NetworkServer.AddPlayerForConnection(conn, player);
 
             // spawn ball if two players

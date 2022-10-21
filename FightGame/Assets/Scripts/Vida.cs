@@ -6,9 +6,9 @@ public class Vida : MonoBehaviour
 {
     public int health = 100;
 
-    public Transform hitbox;;
+    public Transform hitbox;
     public float hitboxRadius;
-    public LayerMaks damageSource;
+    public LayerMask damageSource;
     private bool isHit;
 
     private bool hitCooldown = false;
@@ -30,13 +30,13 @@ public class Vida : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
-    public void knockBack()
-    {
-        Transform attacker = getClosestDamageSource();
-        Vector3 knockbackDirection = new Vector3(tranform.position.x - attacker.transform.position.x, 0);
-    }
+   // public void knockBack()
+   // {
+   //     Transform attacker = getClosestDamageSource();
+   //     Vector3 knockbackDirection = new Vector3(transform.position.x - attacker.transform.position.x, 0);
+   // }
 }

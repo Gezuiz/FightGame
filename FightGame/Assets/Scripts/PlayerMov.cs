@@ -14,7 +14,9 @@ public class PlayerMov : NetworkBehaviour
     public bool doublejump = true;
     public int dashpower;
     public bool dash_Ok = true;
+    public bool FirstTap;
     public bool FirstClick;
+    public Animator anim;
     #endregion
 
     void FixedUpdate()
@@ -22,10 +24,11 @@ public class PlayerMov : NetworkBehaviour
         
         if (Input.GetKey(KeyCode.Space))
         {
-            if(FirstClick == true)
+            if(FirstTap == true)
             {
                 jump();
-                FirstClick = false;
+                FirstTap = false;
+                anim.SetBool("Pulo", true);
                 StartCoroutine(SpaceRecharge());
             }
         }
@@ -35,6 +38,7 @@ public class PlayerMov : NetworkBehaviour
             {
                 rigid.velocity = Vector3.forward * moveSpeed;
                 flip = true;
+                anim.SetFloat("Velocidade", 0.1f);
                 Rotate();
             }
             else
@@ -59,6 +63,7 @@ public class PlayerMov : NetworkBehaviour
             {
                 rigid.velocity = Vector3.back * moveSpeed;
                 flip = false;
+                anim.SetFloat("Velocidade", 0.1f);
                 Rotate();
                 
             }
@@ -76,6 +81,11 @@ public class PlayerMov : NetworkBehaviour
                 Rotate();
             }
         }
+        else
+        {
+            anim.SetFloat("Velocidade", 0.0f);
+        }
+        
         if (inAir == false)
         {
             doublejump = true;
@@ -92,19 +102,52 @@ public class PlayerMov : NetworkBehaviour
             {
                 if (flip)
                 {
-                    rigid.AddForce(new Vector3(-dashpower, 0, 0), ForceMode.Impulse);
+                    rigid.AddForce(new Vector3(0, 0, dashpower), ForceMode.Impulse);
                     dash_Ok = false;
+                    anim.SetTrigger("Dash");
                 }
 
                 if (!flip)
                 {
-                    rigid.AddForce(new Vector3(dashpower, 0, 0), ForceMode.Impulse);
+                    rigid.AddForce(new Vector3(0, 0, -dashpower), ForceMode.Impulse);
                     dash_Ok = false;
+                    anim.SetTrigger("Dash");
                 }
             }
             
             StartCoroutine(Dash());
             
+        }
+
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            if (FirstClick == true)
+            {
+                anim.SetTrigger("Tapa1");
+                FirstClick = false;
+                StartCoroutine(MouseRecharge());
+
+            }
+        }
+        
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            if (FirstClick == true)
+            {
+                anim.SetTrigger("Tapa2");
+                FirstClick = false;
+                StartCoroutine(MouseRecharge());
+            }
+        }
+        
+        if (Input.GetKey(KeyCode.Mouse2))
+        {
+            if (FirstClick == true)
+            {
+                anim.SetTrigger("Super");
+                FirstClick = false;
+                StartCoroutine(MouseRecharge());
+            }
         }
 
     }
@@ -124,6 +167,7 @@ public class PlayerMov : NetworkBehaviour
             if (collision.gameObject.tag == "Ground")
             {
                 inAir = false;
+                anim.SetBool("Pulo", false);
             }
         }
     }
@@ -175,13 +219,19 @@ public class PlayerMov : NetworkBehaviour
     IEnumerator SpaceRecharge()
     {
         yield return new WaitForSeconds(0.2f);
-        FirstClick = true;
+        FirstTap = true;
     }
 
     private void Start()
     {
+        FirstTap = true;
         FirstClick = true;
-        
+    }
+
+    IEnumerator MouseRecharge()
+    {
+        yield return new WaitForSeconds(1f);
+        FirstClick = true;
     }
 
 }

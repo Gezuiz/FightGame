@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: 21820cf55bd7b024784305a08457c9b8
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 20300
   internalIDToNameTable:
   - first:
       74: -623603649343465320
-    second: Scene
+    second: Idle
   - first:
       74: -7167778394459160122
     second: Andando
@@ -26,7 +26,7 @@ ModelImporter:
     second: dash
   externalObjects: {}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -53,18 +53,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Scene
+      name: Idle
       takeName: Scene
       internalID: 0
-      firstFrame: 0
-      lastFrame: 250
+      firstFrame: 1
+      lastFrame: 3
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -85,7 +85,7 @@ ModelImporter:
       name: Andando
       takeName: Scene
       internalID: 0
-      firstFrame: 1
+      firstFrame: 2
       lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
@@ -320,6 +320,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

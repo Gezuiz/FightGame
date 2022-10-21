@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 2016570913240193704}
   - component: {fileID: 2958024839279247470}
   - component: {fileID: 5369907527737865980}
+  - component: {fileID: -8394003932204154166}
   m_Layer: 0
   m_Name: TubaraoJogavel
   m_TagString: Untagged
@@ -547,6 +548,7 @@ MonoBehaviour:
   dashpower: 1
   dash_Ok: 1
   FirstClick: 0
+  anim: {fileID: -8394003932204154166}
 --- !u!114 &5369907527737865980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,7 +564,26 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   clientAuthority: 0
-  animator: {fileID: 0}
+  animator: {fileID: -8394003932204154166}
+--- !u!95 &-8394003932204154166
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329584475957521609}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 34ca43da304ed4d43b01d680a12d1798, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1578760343964554775
 GameObject:
   m_ObjectHideFlags: 0
