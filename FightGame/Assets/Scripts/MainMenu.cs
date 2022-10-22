@@ -16,6 +16,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Arena1");
     }
 
+    public void PlayNight()
+    {
+        SceneManager.LoadScene("Arena2");
+    }
+
     public void PlayShowdown()
     {
         SceneManager.LoadScene("CharacterSelect1");
