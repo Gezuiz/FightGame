@@ -25,7 +25,7 @@ public class PlayerMov : NetworkBehaviour
 
     void FixedUpdate()
     {
-        if(!isLocalPlayer)
+        if(!hasAuthority)
         {
             return;
         }
@@ -261,7 +261,7 @@ public class PlayerMov : NetworkBehaviour
     
     private void OnTriggerEnter(Collider Damage)
     {
-        if (!isLocalPlayer || !Damage.CompareTag("Damage")) 
+        if (!hasAuthority || !Damage.CompareTag("Damage")) 
         {
             return;
         }

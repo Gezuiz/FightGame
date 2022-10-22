@@ -44,6 +44,7 @@ public class CharacterSelect : NetworkBehaviour
     public void StartGame()
     {
         CmdSelect(selectedCharacter);
+        CharacterDisplay.SetActive(false);
     }
 
     [Command(requiresAuthority = false)]
@@ -52,7 +53,6 @@ public class CharacterSelect : NetworkBehaviour
         Transform start = spawnpos1;
         GameObject characterInstance = Instantiate(characters[CharacterIndex].ChracterGameplay, start.position, start.rotation);
         NetworkServer.Spawn(characterInstance, sender);
-        CharacterDisplay.SetActive(false);
         Debug.Log("Dota2");
     } 
     public void PreviousCharacter()

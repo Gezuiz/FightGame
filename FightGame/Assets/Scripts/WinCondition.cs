@@ -13,6 +13,7 @@ public class WinCondition : NetworkBehaviour
         if (!isServer)
         {
             VictoryScreen1.SetActive(true);
+
         }
         else
         {
