@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayDuel()
     {
-        SceneManager.LoadScene("CharacterSelect");
+        SceneManager.LoadScene("Arena1");
     }
 
     public void PlayShowdown()

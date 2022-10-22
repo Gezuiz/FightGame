@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 94683da8850d62c43879b9f36a5522df
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - VictoryScreen1: {fileID: 414925715249807997, guid: d101943e1b2c1204f9281eea900cd97b, type: 3}
+  - VictoryScreen2: {fileID: 737419214243973854, guid: ca1424bc5e7ae374cbea321b0faae161, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

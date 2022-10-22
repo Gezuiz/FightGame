@@ -1,34 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Mirror;
+using UnityEngine.UI;
 
-public class CharacterSelect : MonoBehaviour
+public class CharacterSelect : NetworkBehaviour
 {
-    public GameObject[] characters;
+    public Character[] characters = default;
     public int selectedCharacter = 0;
+    [SerializeField] GameObject CharacterDisplay;
+    [SerializeField] Transform CharacterBannerParent;
+    private List<GameObject> characterInstances = new List<GameObject>();
+    public Transform spawnpos1;
+    public Transform spawnpos2;
+    public Text chooseNameText;
+
+
+    public override void OnStartClient()
+    {
+        if(CharacterBannerParent.childCount == 0)
+        {
+            foreach (var character in characters)
+            {
+                GameObject characterInstance =
+                    Instantiate(character.CharacterBanner, CharacterBannerParent);
+
+                characterInstance.SetActive(false);
+
+                characterInstances.Add(characterInstance);
+            }
+        }
+        characterInstances[selectedCharacter].SetActive(true);
+        CharacterDisplay.SetActive(true);
+    }
+    
     public void NextCharacter()
     {
-        characters[selectedCharacter].SetActive(false);
+        characterInstances[selectedCharacter].SetActive(false);
         selectedCharacter = (selectedCharacter + 1) % characters.Length;
-        characters[selectedCharacter].SetActive(true);
+        characterInstances[selectedCharacter].SetActive(true);
     }
 
-    
+    public void StartGame()
+    {
+        CmdSelect(selectedCharacter);
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSelect(int CharacterIndex, NetworkConnectionToClient sender = null)
+    {
+        Transform start = spawnpos1;
+        GameObject characterInstance = Instantiate(characters[CharacterIndex].ChracterGameplay, start.position, start.rotation);
+        NetworkServer.Spawn(characterInstance, sender);
+        CharacterDisplay.SetActive(false);
+        Debug.Log("Dota2");
+    } 
     public void PreviousCharacter()
     {
-        characters[selectedCharacter].SetActive(false);
+        characterInstances[selectedCharacter].SetActive(false);
         selectedCharacter--;
         if (selectedCharacter <0)
         {
             selectedCharacter += characters.Length;
         }
-        characters[selectedCharacter].SetActive(true);
-    }
-
-   public void StartGame()
-    {
-        PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
-        SceneManager.LoadScene("Arena1");
+        characterInstances[selectedCharacter].SetActive(true);
     }
 }

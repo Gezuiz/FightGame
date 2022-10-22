@@ -24,25 +24,25 @@ namespace Mirror.Examples.Pong
         public override void OnServerAddPlayer(NetworkConnectionToClient conn)
         {
             // add player at correct spawn position
-            int selectedCharacter = 2; //PlayerPrefs.GetInt("selectedCharacter");
-            GameObject prefab = Characters[selectedCharacter];
+            int selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
+            GameObject prefab = playerPrefab;
             Transform start = numPlayers == 0 ? leftRacketSpawn : rightRacketSpawn;
-            GameObject player = Instantiate(prefab, start.position, start.rotation);
+            GameObject player = Instantiate(playerPrefab, start.position, start.rotation);
             NetworkServer.AddPlayerForConnection(conn, player);
 
-            // spawn ball if two players
-            if (numPlayers == 2)
-            {
-                ball = Instantiate(spawnPrefabs.Find(prefab => prefab.name == "Ball"));
-                NetworkServer.Spawn(ball);
-            }
-        }
+            //// spawn ball if two players
+            //if (numPlayers == 2)
+            //{
+            //    ball = Instantiate(spawnPrefabs.Find(prefab => prefab.name == "Ball"));
+            //    NetworkServer.Spawn(ball);
+            //}
+        } 
 
         public override void OnServerDisconnect(NetworkConnectionToClient conn)
         {
-            // destroy ball
-            if (ball != null)
-                NetworkServer.Destroy(ball);
+           // // destroy ball
+           // if (ball != null)
+           //     NetworkServer.Destroy(ball);
 
             // call base functionality (actually destroys the player)
             base.OnServerDisconnect(conn);
