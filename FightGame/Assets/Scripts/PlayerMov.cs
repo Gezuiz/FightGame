@@ -103,30 +103,13 @@ public class PlayerMov : NetworkBehaviour
             }
             if (inAir == true)
             {
-                rigid.velocity += Vector3.up * Physics2D.gravity.y * (2.5f - 1) * Time.deltaTime;
+                rigid.velocity += Physics2D.gravity.y * (Vector3.up * Time.deltaTime)/2;
             }
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                if (dash_Ok)
-                {
-                    if (flip)
-                    {
-                        rigid.AddForce(new Vector3(0, 0, dashpower), ForceMode.Impulse);
-                        dash_Ok = false;
-                        anim.SetTrigger("Dash");
-                    }
-
-                    if (!flip)
-                    {
-                        rigid.AddForce(new Vector3(0, 0, -dashpower), ForceMode.Impulse);
-                        dash_Ok = false;
-                        anim.SetTrigger("Dash");
-                    }
-                }
-
-                StartCoroutine(Dash());
-
+                Dash();
+                StartCoroutine(DashRecharge());
             }
 
             if (Input.GetKey(KeyCode.Mouse1))
@@ -175,17 +158,37 @@ public class PlayerMov : NetworkBehaviour
         }
     }
 
-    IEnumerator Dash()
+    private void Dash()
+    {
+        if (dash_Ok)
+        {
+            if (flip)
+            {
+                rigid.AddForce(new Vector3(0, 0, dashpower), ForceMode.Impulse);
+                dash_Ok = false;
+                anim.SetTrigger("Dash");
+            }
+
+            if (!flip)
+            {
+                rigid.AddForce(new Vector3(0, 0, -dashpower), ForceMode.Impulse);
+                dash_Ok = false;
+                anim.SetTrigger("Dash");
+            }
+        }
+    }
+
+    IEnumerator DashRecharge()
     {
         if (inAir)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
             dash_Ok = true;
         }
 
         if(inAir == false)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1);
             dash_Ok = true;
 
         }

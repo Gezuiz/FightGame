@@ -757,7 +757,7 @@ MonoBehaviour:
   inAir: 0
   flip: 0
   doublejump: 1
-  dashpower: 0
+  dashpower: 3
   dash_Ok: 1
   FirstTap: 0
   FirstClick: 0
@@ -2240,8 +2240,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: -0.00000011920929, z: 0}
+  m_Radius: 0.6127716
+  m_Center: {x: 0.11277157, y: -0.00000011920929, z: 0}
 --- !u!1 &6210522240472877568
 GameObject:
   m_ObjectHideFlags: 0

@@ -490,7 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
@@ -540,13 +540,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  moveSpeed: 5
+  moveSpeed: 4.5
   jumpHeight: 7
   rigid: {fileID: 2016570913240193704}
   inAir: 0
   flip: 0
   doublejump: 1
-  dashpower: 1
+  dashpower: 5
   dash_Ok: 1
   FirstTap: 0
   FirstClick: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   animator: {fileID: -8394003932204154166}
 --- !u!95 &-8394003932204154166
 Animator:
@@ -1857,8 +1857,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000003
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.6421864
+  m_Center: {x: 0, y: 0, z: -0.062952325}
 --- !u!1 &5248716541068848145
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,8 +18,6 @@ public class CharacterSelect : NetworkBehaviour
 
     public override void OnStartClient()
     {
-        if(CharacterBannerParent.childCount == 0)
-        {
             foreach (var character in characters)
             {
                 GameObject characterInstance =
@@ -29,7 +27,7 @@ public class CharacterSelect : NetworkBehaviour
 
                 characterInstances.Add(characterInstance);
             }
-        }
+        
         characterInstances[selectedCharacter].SetActive(true);
         CharacterDisplay.SetActive(true);
     }

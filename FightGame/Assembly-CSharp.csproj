@@ -63,10 +63,10 @@
     <Compile Include="Assets\Scripts\ReturnPosition.cs" />
     <Compile Include="Assets\Scripts\PlayerMov.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\WinCondition.cs" />
     <Compile Include="Assets\nickname.cs" />
     <Compile Include="Assets\Scripts\LoadCharacter.cs" />
     <Compile Include="Assets\Scripts\CharacterSelect.cs" />
-    <Compile Include="Assets\Scripts\WinCondition.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
