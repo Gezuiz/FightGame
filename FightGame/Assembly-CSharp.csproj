@@ -67,6 +67,7 @@
     <Compile Include="Assets\nickname.cs" />
     <Compile Include="Assets\Scripts\LoadCharacter.cs" />
     <Compile Include="Assets\Scripts\CharacterSelect.cs" />
+    <Compile Include="Assets\Scripts\HostConnect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
